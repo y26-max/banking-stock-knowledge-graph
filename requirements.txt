@@ -1,0 +1,11 @@
+flask
+py2neo
+tushare
+pandas
+numpy
+tqdm
+fasttext
+jieba
+ahocorasick
+pyecharts
+pprint
