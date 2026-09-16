@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基于银行股票的知识图谱可视化及问答系统</title>
+
+    <!--Bootstrap Stylesheet [ REQUIRED ]-->
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="../static/images/logo.jpg">
+    <!--Nifty Stylesheet [ REQUIRED ]-->
+    <link href="../static/css/nifty.min.css" rel="stylesheet">
+
+
+    <!--Nifty Premium Icon [ DEMONSTRATION ]-->
+    <link href="../static/css/nifty-demo-icons.min.css" rel="stylesheet">
+
+
+    <!--Demo [ DEMONSTRATION ]-->
+    <link href="../static/css/nifty-demo-icons.min.css" rel="stylesheet">
+    <link href="../static/css/nifty-demo.min.css" rel="stylesheet">
+    <link href="../static/css/font-awesome.min.css" rel="stylesheet">
+
+    <!--对话渲染模板-->
+    <link href="../static/css/main.css" rel="stylesheet" type="text/css">
+
+
+    <!--JAVASCRIPT-->
+    <!--=================================================-->
+
+    <!--Pace - Page Load Progress Par [OPTIONAL]-->
+    <link href="../static/css/pace.min.css" rel="stylesheet">
+
+    <script src="../static/js/pace.min.js"></script>
+
+
+
+    <!--jQuery [ REQUIRED ]-->
+    <script src="../static/js/jquery-2.2.4.min.js"></script>
+
+
+    <!--BootstrapJS [ RECOMMENDED ]-->
+    <script src="../static/js/bootstrap.min.js"></script>
+
+
+    <!--NiftyJS [ RECOMMENDED ]-->
+    <script src="../static/js/nifty.min.js"></script>
+    <script src="../static/js/icons.js"></script>
+
+
+    <script src="../static/js/echarts.min.js"></script>
+
+
+    <!--=================================================-->
+
+    <!--Demo script [ DEMONSTRATION ]-->
+    <script src="../static/js/nifty-demo.min.js"></script>
+    <meta charset="utf-8">
+    <title>银行股票知识图谱</title>
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+    <script src="http://cdn.zaixianke.com/china.js"></script>
+</head>
+<body >
+<div id="container" class="effect aside-float aside-bright mainnav-lg">
+
+        <!--NAVBAR-->
+        <header id="navbar">
+            <div id="navbar-container" class="boxed">
+                <!--Brand logo & name-->
+                <div class="navbar-header">
+                    <a href="{{ url_for('index') }}" class="navbar-brand">
+                        <img src="../static/images/北邮LOGO.png" alt="Nifty Logo" class="brand-icon">
+                        <div class="brand-title">
+                            <span class="brand-text">知识图谱可视化及问答系统</span>
+                        </div>
+                    </a>
+                </div>
+                <!--End brand logo & name-->
+
+                <!--Navbar Dropdown-->
+                <div class="navbar-content clearfix">
+                    <ul class="nav navbar-top-links pull-left">
+                        <!--Navigation toogle button-->
+                        <li class="tgl-menu-btn">
+                            <a class="mainnav-toggle" href="#">
+                                <i class="demo-pli-view-list"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-top-links pull-left">
+                        <h4>基于银行股票的知识图谱可视化及问答系统</h4>
+                    </ul>
+                </div>
+                <!--End Navbar Dropdown-->
+            </div>
+        </header>
+        <!--END NAVBAR-->
+
+        <div class="boxed">
+            <!--MAIN NAVIGATION-->
+            <nav id="mainnav-container">
+                <div id="mainnav">
+                    <!--Menu-->
+                    <div id="mainnav-menu-wrap">
+                        <div class="nano">
+                            <div class="nano-content">
+                                <ul id="mainnav-menu" class="list-group">
+                                    <!--Category name1-->
+						            <li class="list-header">图谱可视化</li>
+                                    <!--Menu list item-->
+                                   <li>
+                                        <a href="{{ url_for('search_page')}}">
+                                            <i class="fa fa-search" style="width:24px"></i>
+                                            <span class="menu-title"><strong>检索节点信息</strong></span>
+                                        </a>
+                                   </li>
+                                    <li>
+                                        <a href="{{ url_for('get_all_relation') }}">
+                                            <i class="fa fa-pie-chart" style="width:24px"></i>
+                                            <span class="menu-title"><strong>图谱全貌</strong></span>
+                                        </a>
+                                    </li>
+                                    <li class="list-header">数据可视化</li>
+                                    <li>
+                                        <a href="{{ url_for('get_map') }}">
+                                            <i class="fa fa-map" style="width:24px"></i>
+                                            <span class="menu-title"><strong>银行所在省份数量分布</strong></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url_for('get_stock') }}">
+                                            <i class="fa fa-trademark" style="width:24px"></i>
+                                            <span class="menu-title"><strong>A股交易数据</strong></span>
+                                        </a>
+                                    </li>
+                                    <!--Menu list item-->
+
+						            <li class="list-divider"></li>
+
+						            <!--Category name2-->
+						            <li class="list-header">问答系统</li>
+						            <!--Menu list item-->
+                                    <li >
+						                <a href="{{ url_for('dialogue_page') }}">
+						                    <i class="fa fa-comments" style="width:24px"></i>
+						                    <span class="menu-title"><strong>多轮对话</strong></span>
+						                </a>
+						            </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End menu-->
+
+                </div>
+            </nav>
+            <!--END MAIN NAVIGATION-->
+        </div>
+
+<body >
+<body>
+
+    <div id="box" style="width: 2000px; height: 1200px; display: flex;">
+        <div id="map" style="width: 1000px; height: 1700px;left:200px"></div>
+        <div id="pie" style="width: 1000px; height: 1000px;"></div>
+    </div>
+
+    <script>
+        // 初始化地图实例
+        var mapChart = echarts.init(document.getElementById("map"));
+        // 初始化饼图实例
+        var pieChart = echarts.init(document.getElementById("pie"));
+
+        // 地图配置
+        var mapOption = {
+            title: {
+                text: '银行所在省份数量分布图',
+                top: "10%",
+                left: "35%",
+                textStyle: {
+                    fontSize: 25,
+                    color: "orange"
+                },
+            },
+            tooltip: {
+                trigger: 'item',
+                backgroundColor: "red",
+                formatter: '地区：{b}<br/>银行数量：{c}'
+            },
+            visualMap: {
+                top: 'center',
+                left: '10%',
+                min: 0,
+                max: 70,
+                text: ['High', 'Low'],
+                realtime: false,
+                calculable: true,
+                inRange: {
+                    color: ['lightskyblue', 'yellow', 'orangered']
+                }
+            },
+            series: [
+                {
+                    name: '银行数量',
+                    type: 'map',
+                    mapType: 'china',
+                    roam: false,
+                    itemStyle: {
+                        normal: {
+                            label: {
+                                show: true,
+                                textStyle: {
+                                    color: "black"
+                                }
+                            }
+                        },
+                        zoom: 1.5,
+                        emphasis: {
+                            label: { show: true }
+                        }
+                    },
+                    top: "15%",
+                    data: [
+                        { name: '安徽', value: 42 },
+                        { name: '北京', value: 19 },
+                        { name: '福建', value: 69 },
+                        { name: '甘肃', value: 2 },
+                        { name: '广东', value: 34 },
+                        { name: '广西', value: 4 },
+                        { name: '贵州', value: 3 },
+                        { name: '河北', value: 18 },
+                        { name: '河南', value: 24 },
+                        { name: '黑龙江', value: 2 },
+                        { name: '湖北', value: 4 },
+                        { name: '湖南', value: 13 },
+                        { name: '吉林', value: 2 },
+                        { name: '江苏', value: 39 },
+                        { name: '江西', value: 22 },
+                        { name: '辽宁', value: 18 },
+                        { name: '内蒙古', value: 10 },
+                        { name: '宁夏', value: 3 },
+                        { name: '青海', value: 1 },
+                        { name: '山东', value: 19 },
+                        { name: '山西', value: 8 },
+                        { name: '陕西', value: 4 },
+                        { name: '上海', value: 17 },
+                        { name: '四川', value:32 },
+                        { name: '天津', value: 4 },
+                        { name: '新疆', value: 5 },
+                        { name: '云南', value: 2 },
+                        { name: '浙江', value: 41 },
+                        { name: '重庆', value: 5 },
+                    ]
+                }
+            ]
+        };
+        mapChart.setOption(mapOption);
+
+        // 饼图配置
+        var pieOption = {
+            title: {
+                text: '银行数量占比',
+                left: '42%',
+                top: '16.5%',
+                textStyle: {
+                    fontSize: 25,
+                    color: '#d35400'
+                }
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: '{b}: {c} ({d}%)'
+            },
+            series: [
+                {
+                    name: '银行数量',
+                    type: 'pie',
+                    radius: '50%',
+                    center: ['50%', '60%'],
+                    data: [
+                        { name: '安徽', value: 42 },
+                        { name: '北京', value: 19 },
+                        { name: '福建', value: 69 },
+                        { name: '甘肃', value: 2 },
+                        { name: '广东', value: 34 },
+                        { name: '广西', value: 4 },
+                        { name: '贵州', value: 3 },
+                        { name: '河北', value: 18 },
+                        { name: '河南', value: 24 },
+                        { name: '黑龙江', value: 2 },
+                        { name: '湖北', value: 4 },
+                        { name: '湖南', value: 13 },
+                        { name: '吉林', value: 2 },
+                        { name: '江苏', value: 39 },
+                        { name: '江西', value: 22 },
+                        { name: '辽宁', value: 18 },
+                        { name: '内蒙古', value: 10 },
+                        { name: '宁夏', value: 3 },
+                        { name: '青海', value: 1 },
+                        { name: '山东', value: 19 },
+                        { name: '山西', value: 8 },
+                        { name: '陕西', value: 4 },
+                        { name: '上海', value: 17 },
+                        { name: '四川', value:32 },
+                        { name: '天津', value: 4 },
+                        { name: '新疆', value: 5 },
+                        { name: '云南', value: 2 },
+                        { name: '浙江', value: 41 },
+                        { name: '重庆', value: 5 },
+                    ],
+                    emphasis: {
+                        itemStyle: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }
+            ]
+        };
+        pieChart.setOption(pieOption);
+
+        // 联动交互
+        mapChart.on('click', function (params) {
+            pieChart.dispatchAction({
+                type: 'highlight',
+                name: params.name
+            });
+        });
+
+        pieChart.on('click', function (params) {
+            mapChart.dispatchAction({
+                type: 'highlight',
+                name: params.name
+            });
+        });
+    </script>
+</body>
+</html>
