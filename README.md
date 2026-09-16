@@ -37,7 +37,7 @@ Built a knowledge graph using Neo4j and Cypher covering 4,140 stocks, 3,014 shar
 
 ### QA System Interface — generates Cypher queries to retrieve answers from the Neo4j knowledge graph and supports context-aware multi-turn dialogue for follow-up questions.
 
-<img width="1395" height="1019" alt="image" src="https://github.com/user-attachments/assets/50ebf074-0b25-4fd2-b077-d924ab84201b" />
+<img width="1400" height="1020" alt="image" src="https://github.com/user-attachments/assets/251c9db0-51a6-4b49-a12a-a965816eca04" />
 
 ## Core Features
 
@@ -56,7 +56,7 @@ Python, Neo4j, Cypher, FastText, ECharts, JavaScript, Tushare API, Flask
 **Prerequisites：** Python 3.9+, Neo4j installed and running
 
 ```bash
-neo4j console                # Start Neo4j
+neo4j console                    # Start Neo4j
 pip install -r requirements.txt  # Install dependencies
 python app.py                    # Run the app
 ```
