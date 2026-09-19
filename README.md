@@ -9,21 +9,21 @@ Built a knowledge graph using Neo4j and Cypher covering 4,140 stocks, 3,014 shar
 
 <img width="1920" height="1015" alt="image" src="https://github.com/user-attachments/assets/7e1af52a-1f8d-44a6-8527-b2326c71cf08" />
 
-### Search "Ping An Bank" under the Stock entity to display its associated concepts and shareholders
+#### Search "Ping An Bank" under the Stock entity to display its associated concepts and shareholders
 
 <img width="1920" height="1000" alt="image" src="https://github.com/user-attachments/assets/ea28d784-dbb3-40fb-b1c4-af5aedb0bc7e" />
 
-### Search "Bank" under the Concept entity to display all stocks classified under the Bank concept
+#### Search "Bank" under the Concept entity to display all stocks classified under the Bank concept
 
 <img width="1920" height="985" alt="image" src="https://github.com/user-attachments/assets/0016fc5a-32f7-4956-960b-65d87cc3135f" />
 
 ### Full Graph View
 
-### Enter 25 under the "Holds" relationship to display a graph of stock–shareholder relationships
+#### Enter 25 under the "Holds" relationship to display a graph of stock–shareholder relationships
 
 <img width="1920" height="876" alt="image" src="https://github.com/user-attachments/assets/a32ab254-3c12-4a05-8f89-31c97e4ebe2f" />
 
-### Enter 25 under the "Belongs-to" relationship to display a graph of stock–concept relationships
+#### Enter 25 under the "Belongs-to" relationship to display a graph of stock–concept relationships
 
 <img width="1920" height="975" alt="image" src="https://github.com/user-attachments/assets/c2e2b15e-aacd-48a8-9180-e2e5b5cb3753" />
 
