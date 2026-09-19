@@ -5,7 +5,7 @@ Built a knowledge graph using Neo4j and Cypher covering 4,140 stocks, 3,014 shar
 
 ### Node Search Interface
 
-### Search "CITIC Securities" under the Shareholder entity to display all stocks held by CITIC Securities
+#### Search "CITIC Securities" under the Shareholder entity to display all stocks held by CITIC Securities
 
 <img width="1920" height="1015" alt="image" src="https://github.com/user-attachments/assets/7e1af52a-1f8d-44a6-8527-b2326c71cf08" />
 
